@@ -1,6 +1,6 @@
 """
 Installation:
-  $ pipenv install click maya togglwrapper
+  $ pipenv install click humanfriendly maya togglwrapper
 
 Configuration:
   $ export TOGGL_API_KEY="PASTE_YOUR_KEY_HERE"
@@ -15,6 +15,7 @@ import os
 import maya
 
 from click_default_group import DefaultGroup
+from humanfriendly import format_timespan
 from togglwrapper import Toggl
 
 from .__version__ import __version__
@@ -50,9 +51,10 @@ def main(slang_date):
             project_name = ':question:'
 
         click.echo(
-            '- [{0}] {1}{2}'.format(
+            '- [{0}] {1} ({2}){3}'.format(
                 project_name,
                 time_entry['description'],
+                format_timespan(time_entry['duration']),
                 ' :moneybag:' if time_entry['billable'] else ''
             )
         )
