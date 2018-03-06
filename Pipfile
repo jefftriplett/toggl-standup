@@ -11,6 +11,7 @@ togglwrapper = "*"
 click = "*"
 maya = "*"
 click-default-group = "*"
+humanfriendly = "*"
 
 
 [dev-packages]
