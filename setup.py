@@ -22,6 +22,7 @@ AUTHOR = 'Jeff Triplett'
 REQUIRED = [
     'click',
     'click-default-group',
+    'crayons',
     'humanfriendly',
     'maya',
     'togglwrapper',
