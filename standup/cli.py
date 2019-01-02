@@ -32,7 +32,7 @@ def cli():
 
 @cli.command()
 @click.option("--show-time/--no-show-time", default=False)
-@click.argument("slang_date")
+@click.argument("slang_date", default="yesterday")
 def main(slang_date, show_time):
     toggl = Toggl(os.environ.get("TOGGL_API_KEY"))
 
