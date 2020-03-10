@@ -3,7 +3,7 @@
 
 [tool.poetry]
 name = "toggl-standup"
-version = "0.3.1"
+version = "0.4.0"
 description = "Removes the pain of using Toggl with Geekbot"
 authors = ["Jeff Triplett <jeff.triplett@gmail.com>"]
 license = "BSD-3-Clause"
