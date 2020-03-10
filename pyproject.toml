@@ -8,9 +8,9 @@ description = "Removes the pain of using Toggl with Geekbot"
 authors = ["Jeff Triplett <jeff.triplett@gmail.com>"]
 license = "BSD-3-Clause"
 readme = "README.md"
-homepage = "https://github.com/jefftriplett/"
-repository = "https://gist.github.com/jefftriplett/2dce2823fb9dc8dbbdc34160d41e0bb4"
-documentation = "https://gist.github.com/jefftriplett/2dce2823fb9dc8dbbdc34160d41e0bb4"
+homepage = "https://github.com/jefftriplett/toggl-standup"
+repository = "https://github.com/jefftriplett/toggl-standup"
+documentation = "https://github.com/jefftriplett/toggl-standup"
 classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: BSD License",
@@ -22,11 +22,11 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
 ]
 packages = [
-    { include = "standup" }
+    { include = "togglstandup" }
 ]
 
 [tool.poetry.scripts]
-standup = "standup:cli"
+standup = "togglstandup:cli"
 
 [tool.poetry.dependencies]
 python = "^3.7"

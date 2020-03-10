@@ -26,7 +26,6 @@ cli = typer.Typer()
 
 
 @cli.command()
-@click.version_option(prog_name="toggl-standup", version=__version__)
 def main(
     slang_date: str,
     show_time: bool = False,
