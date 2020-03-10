@@ -1,16 +1,3 @@
-"""
-Installation:
-  $ pipenv install click crayons humanfriendly maya togglwrapper
-
-Configuration:
-  $ export TOGGL_API_KEY="PASTE_YOUR_KEY_HERE"
-
-Usage:
-  $ python standup.py "yesterday"
-
-"""
-
-import click
 import crayons
 import maya
 import os
@@ -38,7 +25,7 @@ def main(
     toggl = Toggl(os.environ.get("TOGGL_API_KEY"))
 
     if version:
-        click.echo(__version__)
+        typer.echo(__version__)
         raise typer.Exit()
 
     now = maya.when(slang_date, timezone=timezone)
@@ -51,7 +38,7 @@ def main(
         start = maya.when(time_entry["start"])
         start_slag = start.slang_date()
         if start_slag != last_start_slang:
-            click.echo(crayons.green("## {0}".format(start.slang_date())))
+            typer.echo(crayons.green("## {0}".format(start.slang_date())))
         last_start_slang = start_slag
 
         project_id = time_entry.get("pid")
@@ -72,7 +59,7 @@ def main(
         if not show_time:
             del CMD[3]
 
-        click.echo(" ".join(CMD))
+        typer.echo(" ".join(CMD))
 
 
 if __name__ == "__main__":
