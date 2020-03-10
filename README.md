@@ -5,17 +5,16 @@ This tool helps generate my daily Geekbot stand up report in an format which I m
 ## Usage
 
 ```shell
-standup --help
-Usage: standup [OPTIONS] COMMAND [ARGS]...
+$ standup --help
+Usage: standup [OPTIONS] SLANG_DATE
 
   Standup tool to help with Toggl
 
 Options:
-  --version  Show the version and exit.
-  --help     Show this message and exit.
-
-Commands:
-  main*
+  --show-time / --no-show-time
+  --timezone TEXT
+  --version / --no-version
+  --help                        Show this message and exit.
 ```
 
 ## To generate a report for yesterday
