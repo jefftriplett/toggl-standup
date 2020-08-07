@@ -1,6 +1,5 @@
 import crayons
 import maya
-import os
 import typer
 
 from humanfriendly import format_timespan
@@ -15,6 +14,7 @@ cli = typer.Typer()
 @cli.command()
 def main(
     slang_date: str,
+    api_key: str = typer.Option("", envvar="TOGGL_API_KEY", show_envvar=False),
     show_time: bool = False,
     timezone: str = "US/Central",
     version: bool = False,
@@ -22,7 +22,7 @@ def main(
     """
     Standup tool to help with Toggl
     """
-    toggl = Toggl(os.environ.get("TOGGL_API_KEY"))
+    toggl = Toggl(api_key)
 
     if version:
         typer.echo(__version__)
@@ -48,18 +48,17 @@ def main(
         else:
             project_name = ":question:"
 
-        CMD = [
+        cmd = [
             "-",
             f"[{project_name}]",
             f"{time_entry['description']}",
             f"({format_timespan(time_entry['duration'])})",
-            " :moneybag:" if time_entry["billable"] else "",
         ]
 
         if not show_time:
-            del CMD[3]
+            del cmd[-1]
 
-        typer.echo(" ".join(CMD))
+        typer.echo(" ".join(cmd))
 
 
 if __name__ == "__main__":
