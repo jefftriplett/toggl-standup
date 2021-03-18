@@ -15,6 +15,7 @@ cli = typer.Typer()
 def main(
     slang_date: str,
     api_key: str = typer.Option("", envvar="TOGGL_API_KEY", show_envvar=False),
+    show_duration: bool = False,
     show_time: bool = False,
     timezone: str = "US/Central",
     version: bool = False,
@@ -35,8 +36,20 @@ def main(
 
     last_start_slang = None
     for time_entry in time_entries:
-        start = maya.when(time_entry["start"])
-        start_slag = start.slang_date()
+        if time_entry["start"]:
+            start = maya.when(time_entry["start"])
+            start_slag = start.slang_date()
+        else:
+            start = None
+            start_slag = None
+
+        if time_entry["stop"]:
+            stop = maya.when(time_entry["stop"])
+            stop_slag = stop.slang_time()
+        else:
+            stop = None
+            stop_slag = None
+
         if start_slag != last_start_slang:
             typer.echo(crayons.green("## {0}".format(start.slang_date())))
         last_start_slang = start_slag
@@ -48,14 +61,23 @@ def main(
         else:
             project_name = ":question:"
 
-        cmd = [
-            "-",
+        cmd = ["-"]
+
+        if show_time:
+            cmd += [
+                f"{start.hour:02}:{start.minute:02}",
+                "-",
+                f"{stop.hour:02}:{stop.minute:02}",
+                "-",
+            ]
+
+        cmd += [
             f"[{project_name}]",
-            f"{time_entry['description']}",
+            f"{time_entry.get('description', '')}",
             f"({format_timespan(time_entry['duration'])})",
         ]
 
-        if not show_time:
+        if not show_duration:
             del cmd[-1]
 
         typer.echo(" ".join(cmd))
