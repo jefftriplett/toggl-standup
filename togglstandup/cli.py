@@ -4,12 +4,18 @@ import typer
 
 from humanfriendly import format_timespan
 from togglwrapper import Toggl
+from typing import Optional
 
 from .__version__ import __version__
 
 
 cli = typer.Typer()
 
+
+def version_callback(value: bool):
+    if value:
+        typer.echo(f"toggl-standup version: {__version__}")
+        raise typer.Exit()
 
 @cli.command()
 def main(
@@ -18,7 +24,9 @@ def main(
     show_duration: bool = False,
     show_time: bool = False,
     timezone: str = "US/Central",
-    version: bool = False,
+    version: Optional[bool] = typer.Option(
+        None, "--version", callback=version_callback
+    ),
 ):
     """
     Standup tool to help with Toggl
