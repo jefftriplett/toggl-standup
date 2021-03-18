@@ -35,7 +35,7 @@ crayons = "^0.3.0"
 humanfriendly = "^8.1"
 maya = "^0.6.1"
 togglwrapper = "^1.2.0"
-typer = "^0.0.9"
+typer = "^0.3.2"
 
 [tool.poetry.dev-dependencies]
 bumpversion = "^0.5.3"
