@@ -17,6 +17,7 @@ def version_callback(value: bool):
         typer.echo(f"toggl-standup version: {__version__}")
         raise typer.Exit()
 
+
 @cli.command()
 def main(
     slang_date: str,
