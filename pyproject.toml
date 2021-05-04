@@ -37,6 +37,7 @@ humanfriendly = "^8.1"
 maya = "^0.6.1"
 togglwrapper = "^1.2.0"
 typer = "^0.3.2"
+rich = "^10.1.0"
 
 [tool.poetry.dev-dependencies]
 bumpversion = "^0.5.3"
