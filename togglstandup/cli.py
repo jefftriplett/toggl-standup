@@ -3,6 +3,7 @@ import maya
 import typer
 
 from humanfriendly import format_timespan
+from rich import print
 from togglwrapper import Toggl
 from typing import Optional
 
@@ -14,7 +15,7 @@ cli = typer.Typer()
 
 def version_callback(value: bool):
     if value:
-        typer.echo(f"toggl-standup version: {__version__}")
+        print(f"toggl-standup version: {__version__}")
         raise typer.Exit()
 
 
@@ -35,7 +36,7 @@ def main(
     toggl = Toggl(api_key)
 
     if version:
-        typer.echo(__version__)
+        print(__version__)
         raise typer.Exit()
 
     now = maya.when(slang_date, timezone=timezone)
@@ -60,7 +61,8 @@ def main(
             stop_slag = None
 
         if start_slag != last_start_slang:
-            typer.echo(crayons.green("## {0}".format(start.slang_date())))
+            print(f"[bold green]## {start.slang_date()}[/bold green]")
+
         last_start_slang = start_slag
 
         project_id = time_entry.get("pid")
@@ -89,7 +91,7 @@ def main(
         if not show_duration:
             del cmd[-1]
 
-        typer.echo(" ".join(cmd))
+        print(" ".join(cmd))
 
 
 if __name__ == "__main__":
