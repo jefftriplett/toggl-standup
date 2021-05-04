@@ -11,14 +11,24 @@ Usage: standup [OPTIONS] SLANG_DATE
 
   Standup tool to help with Toggl
 
+Arguments:
+  SLANG_DATE  [required]
+
 Options:
-  --api-key TEXT
+  --api-key TEXT                  [default: ]
   --show-duration / --no-show-duration
-  --show-time / --no-show-time
-  --timezone TEXT
-  --version / --no-version
+                                  [default: False]
+  --show-time / --no-show-time    [default: False]
+  --timezone TEXT                 [default: US/Central]
+  --version
+  --install-completion [bash|zsh|fish|powershell|pwsh]
+                                  Install completion for the specified shell.
+  --show-completion [bash|zsh|fish|powershell|pwsh]
+                                  Show completion for the specified shell, to
+                                  copy it or customize the installation.
+
   --help                          Show this message and exit.
-  ```
+```
 
 ## To generate a report for yesterday
 
