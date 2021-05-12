@@ -6,7 +6,7 @@ This tool helps generate my daily Geekbot stand up report in an format which I m
 
 ```shell
 $ export TOGGL_API_KEY="PASTE_YOUR_KEY_HERE"
-
+$ standup --help
 Usage: standup [OPTIONS] SLANG_DATE
 
   Standup tool to help with Toggl
