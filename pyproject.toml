@@ -3,7 +3,7 @@
 
 [tool.poetry]
 name = "toggl-standup"
-version = "0.6.0"
+version = "2021.5.1"
 description = "Removes the pain of using Toggl with Geekbot"
 authors = ["Jeff Triplett <jeff.triplett@gmail.com>"]
 license = "BSD-3-Clause"
@@ -32,7 +32,6 @@ standup = "togglstandup:cli"
 [tool.poetry.dependencies]
 python = "^3.7"
 click = "^7.1.1"
-crayons = "^0.3.0"
 humanfriendly = "^8.1"
 maya = "^0.6.1"
 togglwrapper = "^1.2.0"
@@ -40,9 +39,27 @@ typer = "^0.3.2"
 rich = "^10.1.0"
 
 [tool.poetry.dev-dependencies]
-bumpversion = "^0.5.3"
 black = "^19.10b0"
+bumpver = "^2021.1112"
 
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.bumpver]
+current_version = "2021.5.1"
+version_pattern = "YYYY.MM.INC1"
+commit_message = ":bookmark: bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+# push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+]
+"README.md" = [
+    "{version}",
+    "{pep440_version}",
+]
+
