@@ -3,7 +3,7 @@
 
 [tool.poetry]
 name = "toggl-standup"
-version = "2021.5.1"
+version = "2021.5.3"
 description = "Removes the pain of using Toggl with Geekbot"
 authors = ["Jeff Triplett <jeff.triplett@gmail.com>"]
 license = "BSD-3-Clause"
@@ -47,7 +47,7 @@ requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
 
 [tool.bumpver]
-current_version = "2021.5.2"
+current_version = "2021.5.3"
 version_pattern = "YYYY.MM.INC1"
 commit_message = ":bookmark: bump version {old_version} -> {new_version}"
 commit = true
