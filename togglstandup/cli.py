@@ -14,7 +14,7 @@ cli = typer.Typer()
 
 def version_callback(value: bool):
     if value:
-        print(f"toggl-standup version: {__version__}")
+        typer.echo(f"toggl-standup version: {__version__}")
         raise typer.Exit()
 
 
@@ -35,7 +35,7 @@ def main(
     toggl = Toggl(api_key)
 
     if version:
-        print(__version__)
+        typer.echo(__version__)
         raise typer.Exit()
 
     now = maya.when(slang_date, timezone=timezone)
@@ -60,7 +60,7 @@ def main(
             stop_slag = None
 
         if start_slag != last_start_slang:
-            print(f"[bold green]## {start.slang_date()}[/bold green]")
+            typer.echo(f"[bold green]## {start.slang_date()}[/bold green]")
 
         last_start_slang = start_slag
 
@@ -90,7 +90,7 @@ def main(
         if not show_duration:
             del cmd[-1]
 
-        print(" ".join(cmd))
+        typer.echo(" ".join(cmd))
 
 
 if __name__ == "__main__":
