@@ -28,16 +28,16 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-standup = "togglstandup:cli"
+standup = "togglstandup.cli:cli"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.9"
 click = "^7.1.1"
-humanfriendly = "^8.1"
+humanfriendly = "^10.0"
 maya = "^0.6.1"
-togglwrapper = "^1.2.0"
-typer = "^0.3.2"
-rich = "^10.1.0"
+togglwrapper = "^2.0.0"
+typer = "^0.4.0"
+rich = "^10.15.2"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"

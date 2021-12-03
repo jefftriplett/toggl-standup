@@ -1,5 +1,6 @@
+import typer
 from togglstandup.cli import cli
 
 
 if __name__ == "__main__":
-    cli()
+    typer.run(cli)
