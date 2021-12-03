@@ -15,6 +15,10 @@ set dotenv-load := false
 @lint:
     black .
 
+@publish:
+    poetry build
+    poetry publish
+
 @update:
     poetry add \
         humanfriendly@latest \
