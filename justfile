@@ -13,4 +13,9 @@ set dotenv-load := false
     black .
 
 @update:
-    poetry update
+    poetry add \
+        humanfriendly@latest \
+        maya@latest \
+        rich@latest \
+        togglwrapper@latest \
+        typer@latest
