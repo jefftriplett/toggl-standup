@@ -6,6 +6,9 @@ set dotenv-load := false
 @build:
     cog -r README.md
 
+@bump:
+    bumpver update
+
 @fmt:
     just --fmt --unstable
 
