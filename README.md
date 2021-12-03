@@ -34,11 +34,9 @@ Options:
   --show-time / --no-show-time    [default: False]
   --timezone TEXT                 [default: US/Central]
   --version
-  --install-completion [bash|zsh|fish|powershell|pwsh]
-                                  Install completion for the specified shell.
-  --show-completion [bash|zsh|fish|powershell|pwsh]
-                                  Show completion for the specified shell, to
-                                  copy it or customize the installation.
+  --install-completion            Install completion for the current shell.
+  --show-completion               Show completion for the current shell, to copy
+                                  it or customize the installation.
 
   --help                          Show this message and exit.
 ```
